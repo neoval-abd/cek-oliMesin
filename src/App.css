@@ -1,0 +1,230 @@
+:root {
+  --bg-color: #f0f4f8;
+  --card-bg: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --primary: #3b82f6;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --radius: 16px;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 1000px; /* Lebar maksimal di PC */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+/* --- GRID LAYOUT SYSTEM (Responsive Core) --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default HP: 1 Kolom */
+  gap: 20px;
+}
+
+/* KETIKA DI LAPTOP/TABLET (Lebar > 768px) */
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr; /* Jadi 2 Kolom */
+    align-items: start; /* Rata atas */
+  }
+
+  .left-panel {
+    position: sticky; /* Panel kiri diam saat discroll (opsional) */
+    top: 20px;
+  }
+}
+
+/* --- CARD STYLES --- */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+/* STATUS CARD (PANEL KIRI) */
+.status-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 250px; /* Biar terlihat gagah di desktop */
+}
+
+.status-aman { border-top: 6px solid var(--success); background: linear-gradient(to bottom, #ecfdf5, #fff); }
+.status-waspada { border-top: 6px solid var(--warning); background: linear-gradient(to bottom, #fffbeb, #fff); }
+.status-bahaya { border-top: 6px solid var(--danger); background: linear-gradient(to bottom, #fef2f2, #fff); }
+.status-netral { border-top: 6px solid var(--text-secondary); }
+
+.status-header h2 {
+  margin: 10px 0;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+.status-aman h2 { color: var(--success); }
+.status-bahaya h2 { color: var(--danger); }
+.status-waspada h2 { color: var(--warning); }
+
+.status-icon { font-size: 3rem; display: block; margin-bottom: 10px; }
+
+/* STATS BOXES */
+.stats-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.stat-box {
+  background: rgba(255,255,255,0.6);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.stat-value small { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); }
+
+.status-footer {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.5);
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: auto;
+}
+
+/* --- INPUT SECTIONS (PANEL KANAN) --- */
+.input-card label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.main-input {
+  width: 100%;
+  padding: 16px;
+  padding-right: 50px; /* Space for Unit */
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.2s;
+}
+.main-input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); }
+
+.input-unit {
+  position: absolute;
+  right: 20px;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+/* SETTINGS FORM */
+.settings-card h3 { margin-top: 0; font-size: 1.1rem; color: var(--text-secondary); border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-size: 0.9rem; margin-bottom: 6px; color: var(--text-secondary); font-weight: 500;}
+
+.custom-select, .secondary-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.row-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.btn-action {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--text-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.1s;
+}
+.btn-action:hover { background-color: #0f172a; }
+.btn-action:active { transform: scale(0.98); }
+
+/* --- BUTTON FIX FOR MOBILE --- */
+@media (max-width: 480px) {
+  .stat-value { font-size: 1.4rem; } /* Kecilin dikit font di HP kecil */
+}
+
+/* --- FIX: PAKSA WARNA TEKS JADI GELAP --- */
+input, select, textarea {
+  color: #1e293b !important;       /* Paksa teks jadi biru tua/gelap */
+  background-color: #ffffff !important; /* Paksa background putih */
+  opacity: 1; /* Pastikan tidak transparan */
+}
+
+/* Memperbaiki warna placeholder (tulisan samar) */
+::placeholder {
+  color: #94a3b8 !important; /* Abu-abu */
+  opacity: 1;
+}
+
+/* Memperbaiki ikon panah dropdown agar terlihat jelas */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  appearance: none; /* Hilangkan panah bawaan browser yang jelek */
+  -webkit-appearance: none;
+}
