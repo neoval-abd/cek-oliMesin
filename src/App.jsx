@@ -199,6 +199,9 @@ function App() {
           </div>
         </div>
       </div>
+      <footer className="app-footer">
+        <p>Created with 💌 by <a href="https://instagram.com/novalabd_" target="_blank" rel="noopener noreferrer">@novalabd_</a></p>
+      </footer>
     </div>
   );
 }

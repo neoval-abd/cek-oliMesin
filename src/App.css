@@ -228,3 +228,40 @@ select {
   appearance: none; /* Hilangkan panah bawaan browser yang jelek */
   -webkit-appearance: none;
 }
+
+/* --- STYLE UNTUK FOOTER --- */
+.app-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.app-footer p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.app-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.app-footer a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Animasi dikit biar footer muncul belakangan */
+.app-footer {
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
